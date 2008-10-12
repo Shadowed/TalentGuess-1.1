@@ -1,5 +1,5 @@
 local major = "TalentGuess-1.1"
-local minor = tonumber(string.match("$Revision: 703$", "(%d+)") or 1)
+local minor = tonumber(string.match("$Revision: 730$", "(%d+)") or 1)
 
 assert(LibStub, string.format("%s requires LibStub.", major))
 
@@ -105,6 +105,29 @@ function Talents.UnregisterCallback(self, handler, func)
 	assert(3, self.id and registeredObjs[self.id], string.format(L["MUST_CALL"], "UnregisterCallback", major))
 
 	callbacks[handler] = nil
+end
+
+-- Quick little private API I can use to make sure the database is valid
+function Talents:Verify()
+	ChatFrame1:AddMessage("Verifying")
+	
+	local found
+	for spellID, data in pairs(Talents.spells) do
+		local treeNum, points, isBuff, isCast = string.split(":", data)
+		treeNum = tonumber(treeNum)
+		points = tonumber(points)
+		
+		local name = GetSpellInfo(spellID)
+		
+		if( not name or not treeNum or not points ) then
+			ChatFrame1:AddMessage(string.format("bad [%s] [%s], name [%s] tree [%s] points [%s]", spellID, data, name or "", treeNum or "", points or ""))
+			found = true
+		end
+	end
+	
+	if( not found ) then
+		ChatFrame1:AddMessage("Database is good.")
+	end
 end
 
 -- Return our guess at their talents

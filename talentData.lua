@@ -1,7 +1,7 @@
 if( not IS_WRATH_BUILD ) then return end
 
 local major = "TalentGuessData-1.1"
-local minor = tonumber(string.match("$Revision: 703$", "(%d+)") or 1)
+local minor = tonumber(string.match("$Revision: 800$", "(%d+)") or 1)
 
 assert(LibStub, string.format("%s requires LibStub.", major))
 
@@ -229,13 +229,7 @@ Data.Spells = {
 	-- Clearcasting
 	[12536] = "1:10",
 	-- Focus Magic
-	[54646] = "1:11",
-	[54648] = "1:11",
-	[54650] = "1:11",
-	[54652] = "1:11",
-	[54653] = "1:11",
-	[54654] = "1:11",
-	[54655] = "1:11",
+	[54646] = "1:11:nil:true",
 	-- Presence of Mind
 	[12043] = "1:21",
 	-- Improved Blink
@@ -300,16 +294,13 @@ Data.Spells = {
 	[27134] = "3:31",
 	[33405] = "3:31",
 	[43038] = "3:31",
-	[43039] = "3;31",
+	[43039] = "3:31",
 	-- Summon Water Element
 	[31687] = "3:41",
 	-- Brain Freeze
 	[57761] = "3:44",
 	-- Deep Freeze
 	[44572] = "3:51",
-	[54776] = "3:51",
-	[54777] = "3:51",
-	[54778] = "3:51",
 	
 	-- PALADINS
 	
