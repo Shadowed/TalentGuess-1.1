@@ -7,7 +7,7 @@ local Data = LibStub:NewLibrary(major, minor)
 if( not Data ) then return end
 
 -- The format is pretty simple
--- [spellID] = "tree #:points required:checkBuffs:isCastOnly"
+-- [spellID] = "tree #:points required:checkBuffs:isCast"
 Data.Spells = {
 	-- DEATH KNIGHTS
 	--[[ Blood ]]--
