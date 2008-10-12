@@ -14,7 +14,7 @@ local L = {
 	["BAD_CLASS"] = "No class '%s' found in '%s'.",
 }
 
--- Load the latest data
+-- Load the latest data 
 local Data = LibStub:GetLibrary("TalentGuessData-1.1", true)
 assert(Data, string.format(L["NO_DATA"], major))
 
